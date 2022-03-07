@@ -20,6 +20,7 @@ class User(UserMixin,db.Model):
     upvotes = db.relationship('upvote',backref = 'user',lazy = "dynamic")
     downvotes = db.relationship('downvote' ,backref = 'user',lazy="dynamic")
     pitch = db.relationship('Pitch',backref = 'user', lazy = "dynamic")
+    comments = db.relationship('Comments',backref = 'user', lazy = "dynamic")
 
     @property
     def password(self):
@@ -46,6 +47,7 @@ class Pitch(db.Model):
     comments = db.relationship('Comment',backref = 'pitch',lazy = "dynamic")
     downvotes = db.relationship('downvotes',backref = 'pitch',lazy = "dynamic")
     upvotes = db.relationship('upvotes',backref = 'pitch',lazy = "dynamic")
+    
 
     def save_review(self):
         db.session.add(self)
@@ -58,6 +60,15 @@ class Pitch(db.Model):
 
     def __repr__(self):
         return f'User {self.description}'
+
+
+class Comment:
+    __tablename__ = 'comments'
+    
+    id = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"))
+    posted = db.Column(db.DateTime,default = datetime.utcnow)
 
 
 class Upvote(db.Model):
