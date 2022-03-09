@@ -1,0 +1,24 @@
+{% extends 'bootstrap/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% if title %}
+   <title>{{ title }} - Pitches</title>
+   {% else %}
+   <title>Welcome to The Pitch App</title>
+   {% endif %}
+</head>
+<body>
+    <div>Pitch App: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}
+    
+    
+    {% endblock %}
+  
+    <!--Navbar-->
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+</body>
+</html>

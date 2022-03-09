@@ -1,0 +1,14 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'bootstrap/base.html' %}
+{% include 'navbar.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {{ wtf.quick_form(form) }}
+        <ul>
+            {% for pitch in pitches %}
+            <a href=""></a>
+        </ul>
+    </div>
+</div>

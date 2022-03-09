@@ -1,0 +1,4 @@
+Hello {{user.username}
+Welcome to the Pitch App
+We want to share a warm welcome to you and thank you for signing in our application.
+Please Enjoy your time here with us.

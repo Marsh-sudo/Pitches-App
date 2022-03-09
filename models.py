@@ -1,13 +1,13 @@
-from operator import index
-from .app import db
+
+from app import db
 from flask_login import UserMixin, current_user
-from . import login_manager
+# from flask_login import login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from datetime import datetime
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+{ % import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to The Pitch-App</title>
+    {% endif %}
+</head>
+<body>
+   <h1>ALOHAAA!!!</h1>
+
+  <!--Content block-->
+  {% block content %}
+
+   <!--Motivational quotes-->
+   <h3>Motivational Quotes</h3>
+   <ul>
+       {{ macro.displayPitchlist(Motivational)}}
+   </ul>
+
+   <!--Pickup lines-->
+   <h3>PickUp lines</h3>
+   <ul>
+       {{ macro.displayPitchlist(Pickuplines)}}
+   </ul>
+
+   {% endblock %}
+</body>
+</html>
